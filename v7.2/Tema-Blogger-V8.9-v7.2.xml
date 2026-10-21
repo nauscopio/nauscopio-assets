@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<b:include data='blog' name='all-head-content'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta content='#FBE4BF' media='(prefers-color-scheme: light)' name='theme-color'/>
+<meta content='#0f1115' media='(prefers-color-scheme: dark)' name='theme-color'/>
+<title><data:blog.pageTitle/></title>
+
+<link rel='preconnect' href='https://cdn.jsdelivr.net' crossorigin='anonymous'/>
+<link rel='preconnect' href='https://blogger.googleusercontent.com' crossorigin='anonymous'/>
+<link rel='dns-prefetch' href='https://cdn.jsdelivr.net'/>
+<link rel='dns-prefetch' href='https://blogger.googleusercontent.com'/>
+
+<!-- ============ NAUSCOPIO BRAND ASSETS ============
+  TODO: Sube estos 2 archivos a Blogger y reemplaza URLs:
+  1) apple-touch-icon 180x180 PNG fondo #FBE4BF
+  2) nauscopio-logo-1200x630.png para og:image fallback
+-->
+<link href='https://nauscopio.blogspot.com/favicon.ico' rel='icon' type='image/x-icon'/>
+<!-- <link href='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEitBQWpI848XYIMtsUDBBi02qOeVmQz9YZpR1VKR0Xc6ltcoZo0hrveIF654yjde1TQNtrYdRaCj5hj7tk77g2HH_hJ4EucBpgyW2nvLTEMBYERheru38hhXu9xMxFpp6ace8ieza6FlX4tloiMDrbZSNWQOLWrm-nuqTQ5f9MllHqtY76mNcx99A/s1600/apple-touch-icon-180.png' rel='apple-touch-icon' sizes='180x180'/> -->
+
+<!-- ============ GSC + SOCIAL FIX V8.7 FINAL ============
+  all-head-content ya emite: og:title, og:type, og:url, og:site_name, og:locale,
+  canonical, meta description. Aqui SOLO completamos lo que falta:
+  - og:image en S1600 (evita s72), width/height, alt
+  - twitter card large
+  - article times
+  Sin duplicar canonical ni og:title.
+-->
+
+<b:if cond='data:blog.pageType in {&quot;item&quot;,&quot;static_page&quot;}'>
+  <!-- OG:IMAGE - Conversion forzada a S1600 para evitar thumbnail 72px -->
+  <b:if cond='data:blog.postImageUrl'>
+    <!-- Si la imagen contiene s72/w72/s72-c etc, la convertimos a s1600 -->
+    <meta expr:content='data:blog.postImageUrl contains &quot;/s72&quot; ? data:blog.postImageUrl replace &quot;/s72&quot; with &quot;/s1600&quot; : data:blog.postImageUrl contains &quot;/w72&quot; ? data:blog.postImageUrl replace &quot;/w72&quot; with &quot;/s1600&quot; : data:blog.postImageUrl contains &quot;/s72-c&quot; ? data:blog.postImageUrl replace &quot;/s72-c&quot; with &quot;/s1600&quot; : data:blog.postImageUrl' property='og:image'/>
+    <meta expr:content='data:blog.postImageUrl contains &quot;/s72&quot; ? data:blog.postImageUrl replace &quot;/s72&quot; with &quot;/s1600&quot; : data:blog.postImageUrl contains &quot;/w72&quot; ? data:blog.postImageUrl replace &quot;/w72&quot; with &quot;/s1600&quot; : data:blog.postImageUrl contains &quot;/s72-c&quot; ? data:blog.postImageUrl replace &quot;/s72-c&quot; with &quot;/s1600&quot; : data:blog.postImageUrl' name='twitter:image'/>
+    <meta content='1200' property='og:image:width'/>
+    <meta content='630' property='og:image:height'/>
+    <meta content='1200' name='twitter:image:width'/>
+    <meta content='630' name='twitter:image:height'/>
+    <b:if cond='data:blog.pageName'>
+      <meta expr:content='data:blog.pageName' property='og:image:alt'/>
+      <meta expr:content='data:blog.pageName' name='twitter:image:alt'/>
+    </b:if>
+    <meta content='summary_large_image' name='twitter:card'/>
+  <b:else/>
+    <!-- Fallback para indices sin imagen - SUSTITUYE URL por tu logo 1200x630 real -->
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgP_9BYtKWNS9-zaAD0FpxuMeN4OjEz33lr1dzxSWoxFneXZsxUHvoyVri6o-OFVXDHh4vLNwwd96Xo4LkCL33qMTHm37zULJeGLl-TljvJ2agMWKucZgfnuemie4WQEICJUVQXFFFmOtC8YbFCoZssnHvy8dbOSEsl915wTZp9cWE_e52ErWaFiQ/s1600/nauscopio-logo-1200x630.png' property='og:image'/>
+    <meta content='1200' property='og:image:width'/>
+    <meta content='630' property='og:image:height'/>
+    <meta content='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgP_9BYtKWNS9-zaAD0FpxuMeN4OjEz33lr1dzxSWoxFneXZsxUHvoyVri6o-OFVXDHh4vLNwwd96Xo4LkCL33qMTHm37zULJeGLl-TljvJ2agMWKucZgfnuemie4WQEICJUVQXFFFmOtC8YbFCoZssnHvy8dbOSEsl915wTZp9cWE_e52ErWaFiQ/s1600/nauscopio-logo-1200x630.png' name='twitter:image'/>
+    <meta content='Nauscopio - Informes tecnicos de audio' property='og:image:alt'/>
+    <meta content='summary_large_image' name='twitter:card'/>
+  </b:if>
+
+  <b:if cond='data:blog.pageName'>
+    <meta expr:content='data:blog.pageName' name='twitter:title'/>
+  </b:if>
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+  </b:if>
+
+  <b:if cond='data:post.timestampISO8601'>
+    <meta expr:content='data:post.timestampISO8601' property='article:published_time'/>
+  </b:if>
+  <b:if cond='data:post.lastUpdatedISO8601'>
+    <meta expr:content='data:post.lastUpdatedISO8601' property='article:modified_time'/>
+  </b:if>
+</b:if>
+
+<!-- ============ HREFLANG - MAPEO REAL ES/EN - DEBE SER RECIPROCO ============ -->
+<!-- Acronos P52 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-valvular-pp-ultralineal-de.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-valvular-pp-ultralineal-de.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-40-watt-ultralinear-pp.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-valvular-pp-ultralineal-de.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-40-watt-ultralinear-pp.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-valvular-pp-ultralineal-de.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-40-watt-ultralinear-pp.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-valvular-pp-ultralineal-de.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Acronos RS-1 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150-en.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-rs-1-single-ended-kt150.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Cayin Jazz 80 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/cayin-jazz-80-valvular-pp-ultralineal.html"'>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-valvular-pp-ultralineal.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-pp-ultralinear-tube-amp.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-valvular-pp-ultralineal.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/cayin-jazz-80-pp-ultralinear-tube-amp.html"'>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-valvular-pp-ultralineal.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-pp-ultralinear-tube-amp.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-80-valvular-pp-ultralineal.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Cayin Jazz 90 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/cayin-jazz-90-valvular-pp-ultralineal.html"'>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-90-valvular-pp-ultralineal.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-90-pp-ultralinear-tube-amp-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/cayin-jazz-90-valvular-pp-ultralineal.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Fezz Titania MK2 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/fezz-titania-mk2.html"'>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/fezz-titania-mk2-en.html"'>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/fezz-titania-mk2.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- P52 vs Jazz 80 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80-en.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-80.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- P52 vs Jazz 90 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90-en.html"'>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90-en.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/acronos-p52-vs-cayin-jazz-90.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- xDuoo A35 -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/xduoo-a35-informe-de-meta-ia.html"'>
+  <link href='https://nauscopio.blogspot.com/p/xduoo-a35-informe-de-meta-ia.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/ia-maty-nauscopio-xduoo-a35-valve.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/xduoo-a35-informe-de-meta-ia.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/ia-maty-nauscopio-xduoo-a35-valve.html"'>
+  <link href='https://nauscopio.blogspot.com/p/xduoo-a35-informe-de-meta-ia.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/ia-maty-nauscopio-xduoo-a35-valve.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/xduoo-a35-informe-de-meta-ia.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Altavoz 3 vias -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/altavoz-de-3-vias-de-35-anos-crossover.html"'>
+  <link href='https://nauscopio.blogspot.com/p/altavoz-de-3-vias-de-35-anos-crossover.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/35-year-old-3-way-speaker-crossover-for.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/altavoz-de-3-vias-de-35-anos-crossover.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/35-year-old-3-way-speaker-crossover-for.html"'>
+  <link href='https://nauscopio.blogspot.com/p/altavoz-de-3-vias-de-35-anos-crossover.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/35-year-old-3-way-speaker-crossover-for.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/altavoz-de-3-vias-de-35-anos-crossover.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Grand Diamond -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/klangton-grand-diamond-altavoces.html"'>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-altavoces.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-2-way-monitor.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-2-wege.html' hreflang='de' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-altavoces.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/klangton-grand-diamond-2-way-monitor.html"'>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-altavoces.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-2-way-monitor.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-2-wege.html' hreflang='de' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/klangton-grand-diamond-altavoces.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+<!-- Indice -->
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/2026/10/indice-de-informes-tecnicos-de-audio.html"'>
+  <link href='https://nauscopio.blogspot.com/2026/10/indice-de-informes-tecnicos-de-audio.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/index-of-audio-technical-reports.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/2026/10/indice-de-informes-tecnicos-de-audio.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+<b:if cond='data:blog.url == "https://nauscopio.blogspot.com/p/index-of-audio-technical-reports.html"'>
+  <link href='https://nauscopio.blogspot.com/2026/10/indice-de-informes-tecnicos-de-audio.html' hreflang='es' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/p/index-of-audio-technical-reports.html' hreflang='en' rel='alternate'/>
+  <link href='https://nauscopio.blogspot.com/2026/10/indice-de-informes-tecnicos-de-audio.html' hreflang='x-default' rel='alternate'/>
+</b:if>
+
+
+<b:skin><![CDATA[
+/*
+================================================================
+NAUSCOPIO · TEMA BLOGGER - BASE
+================================================================
+Versión:      V8.9 GSC FINAL FIX AUDIT 2 - minúsculas + mnav-auto + theme fix + lightbox provisional - canonical fix + og S1600 + hreflang real + logos reales 1200/600/180, og:image S1600, hreflang real, BlogPosting movil eliminado, itemprop limpio — OG width/height + canonical + hreflang + BlogPosting eliminado — fix CSS details/summary
+Fecha:        2026-10-21
+Alcance:      base para todas las páginas (home, kiosco, posts, índices, informes)
+Contenido:    01 Reset, 02 Layout, 03 Paginación, 04 Tipografía, 05 Laterales, 06 Fix Anexos
+Nota:         report.css (06-08) y initP52.js se cargan condicionalmente
+              solo en item/static_page vía jsDelivr
+================================================================
+*/
+
+/* ============================================================
+   01. RESET BASE DEL BLOG
+   ============================================================ */
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  background: #F8F8F8;
+  font-family: Verdana, Helvetica, Arial, Sans-serif;
+  color: #000;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+img { max-width: 100%; height: auto; }
+a, a:link, a:visited { color: #033A7E; text-decoration: none; }
+a:hover { background: #0A7EA5; color: #FFF; border-radius: 3px; }
+
+/* ============================================================
+   02. LAYOUT GLOBAL
+   ============================================================ */
+#outer-wrapper {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 4px;
+  background: #FBE4BF;
+}
+.titlewrapper {
+  border: 3px double #CCC;
+  background: #593C49;
+  margin: 10px;
+  color: #FFF;
+  font: bold 110% Garamond, Georgia, Sans-serif;
+  text-align: center;
+}
+.post-outer { background: #FBE4BF; padding-left: 6px; }
+.post { padding: 1% 1% 0 .5%; background: #FBE4BF; }
+#main .widget { padding-bottom: 10px; margin-bottom: 20px; clear: both; }
+.post-footer, .feed-links, h3.post-title, h2.date-header { display: none; }
+.clear { clear: both; }
+.profile-img { float: left; margin: 0 5px 5px 0; }
+#b-navbar, #navbar { display: none; }
+#cookieChoiceInfo, .cookie-choices-info {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ============================================================
+   03. PAGINACIÓN DEL BLOG
+   ============================================================ */
+#blog-pager { display: block; padding: 10px 0; text-align: center; }
+#blog-pager .home-link,
+#blog-pager #blog-pager-home-link .home-link {
+  display: inline-block;
+  min-height: 34px;
+  padding: 8px 20px;
+  margin: 6px;
+  border-radius: 999px;
+  font: bold 11px/1.4 Verdana, Helvetica, Arial, Sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: #593C49;
+  color: #FFF;
+  border: 1px solid #593C49;
+  box-shadow: 0 2px 6px rgba(89, 60, 73, .28);
+  transition: background .22s ease, border-color .22s ease;
+}
+#blog-pager .home-link:hover,
+#blog-pager .home-link:focus,
+#blog-pager #blog-pager-home-link .home-link:hover {
+  background: #0A7EA5;
+  border-color: #0A7EA5;
+  color: #FFF;
+  text-decoration: none;
+}
+#blog-pager .blog-pager-newer-link,
+#blog-pager .blog-pager-older-link {
+  display: inline-block;
+  min-height: 34px;
+  padding: 8px 18px;
+  margin: 6px;
+  border-radius: 999px;
+  font: bold 11px/1.4 Verdana, Helvetica, Arial, Sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: #F6F6F6;
+  color: #033A7E;
+  border: 1px solid #DADADA;
+  transition: background .22s ease, color .22s ease, border-color .22s ease;
+}
+#blog-pager .blog-pager-newer-link:hover,
+#blog-pager .blog-pager-older-link:hover {
+  background: #0A7EA5;
+  color: #FFF;
+  border-color: #0A7EA5;
+}
+
+/* ============================================================
+   04. TIPOGRAFÍA DEL BLOG
+   ============================================================ */
+h1 {
+  color: #000;
+  font: bold 220% Garamond, Georgia, Sans-serif;
+  line-height: 1.1em;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+h1 a, h1 a:link, h1 a:visited { color: #FFF; }
+h2 { font: bold 20px Verdana, Helvetica, Sans-serif; }
+h3.entry-title { padding: 10px 0 0 14px; letter-spacing: .10em; }
+h3.entry-title a { padding: 0; color: #593C49; }
+h3.entry-title a:hover { color: #FFF; }
+li { margin: 10px; }
+td { font-size: 13px; }
+td h4 { margin: 4px 0 0 0; font: bold 110% Garamond, Georgia, Sans-serif; letter-spacing: .05em; }
+
+/* ============================================================
+   05. CONTENEDORES LATERALES Y AUXILIARES
+   ============================================================ */
+
+/* ============================================================
+   06. FIX PARA LOS ANEXOS (DETAILS/SUMMARY) - V8.8
+   ============================================================ */
+details.part-collapse summary {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  cursor: pointer;
+  list-style: none;
+}
+details.part-collapse summary::-webkit-details-marker {
+  display: none;
+}
+details.part-collapse summary::before {
+  content: "\25B8" !important; /* El código CSS correcto para el triángulo ▸ */
+  display: inline-block !important;
+  transition: transform .2s !important;
+  font-size: 1.1em !important;
+  margin-right: 8px !important;
+}
+details.part-collapse[open] summary::before {
+  transform: rotate(90deg) !important;
+}
+details.part-collapse summary::after {
+  display: none !important; /* Oculta la flecha que el tema pone a la derecha */
+}
+
+]]></b:skin>
+
+<!-- Opción B avanzada: CORE + EXTRAS, TODO menos KIOSCO - V8.9 Fix audit 2 -->
+<link crossorigin='anonymous' href='https://cdn.jsdelivr.net' rel='preconnect'/>
+<b:if cond='data:blog.pageName != &quot;KIOSCO&quot; and data:blog.pageName != &quot;KIOSKO&quot; and data:blog.pageName != &quot;Kiosco&quot; and data:blog.pageName != &quot;Kiosko&quot;'>
+  <b:if cond='data:blog.pageType in {&quot;item&quot;,&quot;static_page&quot;}'>
+    <!-- Informes e índices: core + extras - minúsculas, ruta v7.2 -->
+    <link href='https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-core.css' rel='stylesheet'/>
+    <link href='https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-extras.css' rel='stylesheet'/>
+  <b:else/>
+    <!-- Home, Archivo: solo core -->
+    <link href='https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-core.css' rel='stylesheet'/>
+  </b:if>
+</b:if>
+
+
+</head>
+
+<body>
+<b:section class='navbar' id='navbar' maxwidgets='1' showaddelement='no'/>
+<div id='outer-wrapper'>
+<main id='main-wrapper'>
+<b:section class='main' id='main' showaddelement='yes'>
+  <b:widget id='Blog1' locked='true' title='Entradas del blog' type='Blog' version='1'>
+    <b:widget-settings>
+      <b:widget-setting name='showDateHeader'>true</b:widget-setting>
+      <b:widget-setting name='showShareButtons'>false</b:widget-setting>
+      <b:widget-setting name='showCommentLink'>true</b:widget-setting>
+      <b:widget-setting name='showAuthor'>true</b:widget-setting>
+      <b:widget-setting name='style.unittype'>TextAndImage</b:widget-setting>
+      <b:widget-setting name='reactionsLabel'/>
+      <b:widget-setting name='showAuthorProfile'>false</b:widget-setting>
+      <b:widget-setting name='style.layout'>1x1</b:widget-setting>
+      <b:widget-setting name='showLabels'>true</b:widget-setting>
+      <b:widget-setting name='showLocation'>true</b:widget-setting>
+      <b:widget-setting name='showTimestamp'>true</b:widget-setting>
+      <b:widget-setting name='postsPerAd'>1</b:widget-setting>
+      <b:widget-setting name='showBacklinks'>false</b:widget-setting>
+      <b:widget-setting name='showInlineAds'>false</b:widget-setting>
+      <b:widget-setting name='showReactions'>false</b:widget-setting>
+    </b:widget-settings>
+    <b:includable id='main' var='top'>
+<div class='blog-posts hfeed'>
+<b:include data='top' name='status-message'/>
+<data:defaultAdStart/>
+<b:loop values='data:posts' var='post'>
+<b:if cond='data:post.isDateStart'>
+<b:if cond='!data:post.isFirstPost'>&lt;/div&gt;&lt;/div&gt;</b:if>
+</b:if>
+<b:if cond='data:post.isDateStart'>&lt;div class=&quot;date-outer&quot;&gt;</b:if>
+<b:if cond='data:post.dateHeader'>
+<h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+</b:if>
+<b:if cond='data:post.isDateStart'>&lt;div class=&quot;date-posts&quot;&gt;</b:if>
+<div class='post-outer'>
+<b:include data='post' name='post'/>
+<b:if cond='data:blog.pageType in {&quot;item&quot;,&quot;static_page&quot;}'>
+<b:include data='post' name='comments'/>
+</b:if>
+</div>
+<b:if cond='data:post.includeAd'>
+<b:if cond='data:post.isFirstPost'>
+<data:defaultAdEnd/>
+<b:else/>
+<data:adEnd/>
+</b:if>
+<div class='inline-ad'><data:adCode/></div>
+<data:adStart/>
+</b:if>
+</b:loop>
+<b:if cond='data:numPosts != 0'>&lt;/div&gt;&lt;/div&gt;</b:if>
+<data:adEnd/>
+</div>
+<b:include name='nextprev'/>
+</b:includable>
+    <b:includable id='backlinkDeleteIcon' var='backlink'>
+<span expr:class='&quot;item-control &quot; + data:backlink.adminClass'>
+<a expr:href='data:backlink.deleteUrl' expr:title='data:top.deleteBacklinkMsg'>
+<img alt='' src='https://www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</b:includable>
+    <b:includable id='backlinks' var='post'>
+<a name='links'/>
+<h4><data:post.backlinksLabel/></h4>
+<b:if cond='data:post.numBacklinks != 0'>
+<dl class='comments-block' id='comments-block'>
+<b:loop values='data:post.backlinks' var='backlink'>
+<div class='collapsed-backlink backlink-control'>
+<dt class='comment-title'>
+<span class='backlink-toggle-zippy'>&#160;</span>
+<a expr:href='data:backlink.url' rel='nofollow noopener' target='_blank'><data:backlink.title/></a>
+<b:include data='backlink' name='backlinkDeleteIcon'/>
+</dt>
+<dd class='comment-body collapseable'><data:backlink.snippet/></dd>
+<dd class='comment-footer collapseable'>
+<span class='comment-author'><data:post.authorLabel/> <data:backlink.author/></span>
+<span class='comment-timestamp'><data:post.timestampLabel/> <data:backlink.timestamp/></span>
+</dd>
+</div>
+</b:loop>
+</dl>
+</b:if>
+<p class='comment-footer'>
+<a class='comment-link' expr:href='data:post.createLinkUrl' expr:id='data:widget.instanceId + &quot;_backlinks-create-link&quot;' rel='noopener' target='_blank'>
+<data:post.createLinkLabel/>
+</a>
+</p>
+</b:includable>
+    <b:includable id='comment-form' var='post'>
+<div class='comment-form'>
+<a name='comment-form'/>
+<h4 id='comment-post-message'><data:postCommentMsg/></h4>
+<p><data:blogCommentMessage/></p>
+<data:blogTeamBlogMessage/>
+<a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' frameborder='0' height='410' id='comment-editor' name='comment-editor' src='' width='100%'/>
+<data:post.friendConnectJs/>
+<data:post.cmtfpIframe/>
+<script type='text/javascript'>BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);</script>
+</div>
+</b:includable>
+    <b:includable id='commentDeleteIcon' var='comment'>
+<span expr:class='&quot;item-control &quot; + data:comment.adminClass'>
+<a expr:href='data:comment.deleteUrl' expr:title='data:top.deleteCommentMsg'>
+<img alt='' src='https://www.blogger.com/img/icon_delete13.gif'/>
+</a>
+</span>
+</b:includable>
+    <b:includable id='comment_count_picker' var='post'>
+<a class='comment-link' expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'>
+<data:post.commentLabelFull/>:
+</a>
+</b:includable>
+    <b:includable id='comment_picker' var='post'>
+<b:if cond='data:post.showThreadedComments'>
+<b:include data='post' name='threaded_comments'/>
+<b:else/>
+<b:include data='post' name='comments'/>
+</b:if>
+</b:includable>
+    <b:includable id='comments' var='post'>
+<div class='comments' id='comments'>
+<a name='comments'/>
+<b:if cond='data:post.allowComments'>
+<h4>
+<b:if cond='data:post.numComments == 1'>1 <data:commentLabel/>:
+<b:else/><data:post.numComments/> <data:commentLabelPlural/>:</b:if>
+</h4>
+<b:if cond='data:post.commentPagingRequired'>
+<span class='paging-control-container'>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>&#160;
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>&#160;
+<data:post.commentRangeText/>&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+</span>
+</b:if>
+<dl expr:class='data:post.avatarIndentClass' id='comments-block'>
+<b:loop values='data:post.comments' var='comment'>
+<dt expr:class='&quot;comment-author &quot; + data:comment.authorClass' expr:id='data:comment.anchorName'>
+<b:if cond='data:comment.favicon'>
+<img alt='' expr:src='data:comment.favicon' height='16px' style='margin-bottom:-2px;' width='16px'/>
+</b:if>
+<a expr:name='data:comment.anchorName'/>
+<b:if cond='data:blog.enabledCommentProfileImages'>
+<data:comment.authorAvatarImage/>
+</b:if>
+<b:if cond='data:comment.authorUrl'>
+<a expr:href='data:comment.authorUrl' rel='nofollow noopener'><data:comment.author/></a>
+<b:else/>
+<data:comment.author/>
+</b:if>
+<data:commentPostedByMsg/>
+</dt>
+<dd class='comment-body'>
+<b:if cond='data:comment.isDeleted'>
+<span class='deleted-comment'><data:comment.body/></span>
+<b:else/>
+<p><data:comment.body/></p>
+</b:if>
+</dd>
+<dd class='comment-footer'>
+<span class='comment-timestamp'>
+<a expr:href='data:comment.url' title='comment permalink'><data:comment.timestamp/></a>
+<b:include data='comment' name='commentDeleteIcon'/>
+</span>
+</dd>
+</b:loop>
+</dl>
+<b:if cond='data:post.commentPagingRequired'>
+<span class='paging-control-container'>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.oldestLinkUrl'><data:post.oldestLinkText/></a>
+<a expr:class='data:post.oldLinkClass' expr:href='data:post.olderLinkUrl'><data:post.olderLinkText/></a>&#160;
+<data:post.commentRangeText/>&#160;
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newerLinkUrl'><data:post.newerLinkText/></a>
+<a expr:class='data:post.newLinkClass' expr:href='data:post.newestLinkUrl'><data:post.newestLinkText/></a>
+</span>
+</b:if>
+<p class='comment-footer'>
+<b:if cond='data:post.embedCommentForm'>
+<b:if cond='data:post.allowNewComments'>
+<b:include data='post' name='comment-form'/>
+<b:else/>
+<data:post.noNewCommentsText/>
+</b:if>
+<b:else/>
+<b:if cond='data:post.allowComments'>
+<a expr:href='data:post.addCommentUrl' expr:onclick='data:post.addCommentOnclick'><data:postCommentMsg/></a>
+</b:if>
+</b:if>
+</p>
+</b:if>
+<div id='backlinks-container'>
+<div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+<b:if cond='data:post.showBacklinks'>
+<b:include data='post' name='backlinks'/>
+</b:if>
+</div>
+</div>
+</div>
+</b:includable>
+    <b:includable id='feedLinks'>
+<b:if cond='data:blog.pageType != &quot;item&quot;'>
+<b:if cond='data:feedLinks'>
+<div class='blog-feeds'>
+<b:include data='feedLinks' name='feedLinksBody'/>
+</div>
+</b:if>
+<b:else/>
+<div class='post-feeds'>
+<b:loop values='data:posts' var='post'>
+<b:include cond='data:post.allowComments and data:post.feedLinks' data='post.feedLinks' name='feedLinksBody'/>
+</b:loop>
+</div>
+</b:if>
+</b:includable>
+    <b:includable id='feedLinksBody' var='links'>
+<div class='feed-links'>
+<data:feedLinksMsg/>
+<b:loop values='data:links' var='f'>
+<a class='feed-link' expr:href='data:f.url' expr:type='data:f.mimeType' target='_blank'><data:f.name/> (<data:f.feedType/>)</a>
+</b:loop>
+</div>
+</b:includable>
+    <b:includable id='iframe_comments' var='post'>
+<!-- G+ comments, no longer available. The includable is retained for backwards-compatibility. -->
+</b:includable>
+    <b:includable id='mobile-index-post' var='post'>
+<div class='mobile-date-outer date-outer'>
+<b:if cond='data:post.dateHeader'>
+<div class='date-header'>
+<span><data:post.dateHeader/></span>
+</div>
+</b:if>
+<div class='mobile-post-outer'>
+<a expr:href='data:post.url'>
+<h3 class='mobile-index-title entry-title' itemprop='name'>
+<data:post.title/>
+</h3>
+<div class='mobile-index-arrow'>&amp;rsaquo;</div>
+<div class='mobile-index-contents'>
+<b:if cond='data:post.thumbnailUrl'>
+<div class='mobile-index-thumbnail'>
+<div class='Image'>
+<img expr:src='data:post.thumbnailUrl'/>
+</div>
+</div>
+</b:if>
+<div class='post-body'>
+<b:if cond='data:post.snippet'><data:post.snippet/></b:if>
+</div>
+</div>
+<div style='clear: both;'/>
+</a>
+<div class='mobile-index-comment'>
+<b:include cond='data:blog.pageType != &quot;static_page&quot; and data:post.allowComments and data:post.numComments != 0' data='post' name='comment_count_picker'/>
+</div>
+</div>
+</div>
+</b:includable>
+    <b:includable id='mobile-main' var='top'>
+<div class='blog-posts hfeed'>
+<b:include data='top' name='status-message'/>
+<b:if cond='data:blog.pageType == &quot;index&quot;'>
+<b:loop values='data:posts' var='post'>
+<b:include data='post' name='mobile-index-post'/>
+</b:loop>
+<b:else/>
+<b:loop values='data:posts' var='post'>
+<b:include data='post' name='mobile-post'/>
+</b:loop>
+</b:if>
+</div>
+<b:include name='mobile-nextprev'/>
+</b:includable>
+    <b:includable id='mobile-nextprev'>
+<div class='blog-pager' id='blog-pager'>
+<b:if cond='data:newerPageUrl'>
+<div class='mobile-link-button' id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'>&amp;lsaquo;</a>
+</div>
+</b:if>
+<b:if cond='data:olderPageUrl'>
+<div class='mobile-link-button' id='blog-pager-older-link'>
+<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'>&amp;rsaquo;</a>
+</div>
+</b:if>
+<div class='mobile-link-button' id='blog-pager-home-link'>
+<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+</div>
+<div class='mobile-desktop-link'>
+<a class='home-link' expr:href='data:desktopLinkUrl'><data:desktopLinkMsg/></a>
+</div>
+</div>
+<div class='clear'/>
+</b:includable>
+        <b:includable id='mobile-post' var='post'>
+<div class='date-outer'>
+<b:if cond='data:post.dateHeader'>
+<h2 class='date-header'><span><data:post.dateHeader/></span></h2>
+</b:if>
+<div class='date-posts'>
+<div class='post-outer'>
+<div class='post'>
+  <!-- V8.7 FIX: BlogPosting eliminado en movil tambien -->
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title'>
+  <h3 class='post-title entry-title'>
+  <b:if cond='data:post.link'>
+  <a expr:href='data:post.link'><data:post.title/></a>
+  <b:elseif cond='data:post.url and data:blog.url != data:post.url'/>
+  <a expr:href='data:post.url'><data:post.title/></a>
+  <b:else/>
+  <data:post.title/>
+  </b:if>
+  </h3>
+  </b:if>
+  <div class='post-header'>
+  <div class='post-header-line-1'/>
+  </div>
+  <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+  <data:post.body/>
+  <div style='clear: both;'/>
+  </div>
+</div>
+<b:include cond='data:blog.pageType in {&quot;static_page&quot;,&quot;item&quot;}' data='post' name='comment_picker'/>
+</div>
+</div>
+</div>
+</b:includable>
+    <b:includable id='nextprev'>
+<div class='blog-pager' id='blog-pager'>
+<b:if cond='data:newerPageUrl'>
+<span id='blog-pager-newer-link'>
+<a class='blog-pager-newer-link' expr:href='data:newerPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-newer-link&quot;' expr:title='data:newerPageTitle'><data:newerPageTitle/></a>
+</span>
+</b:if>
+<b:if cond='data:olderPageUrl'>
+<span id='blog-pager-older-link'>
+<a class='blog-pager-older-link' expr:href='data:olderPageUrl' expr:id='data:widget.instanceId + &quot;_blog-pager-older-link&quot;' expr:title='data:olderPageTitle'><data:olderPageTitle/></a>
+</span>
+</b:if>
+<a class='home-link' expr:href='data:blog.homepageUrl'><data:homeMsg/></a>
+<b:if cond='data:mobileLinkUrl'>
+<div class='blog-mobile-link'>
+<a expr:href='data:mobileLinkUrl'><data:mobileLinkMsg/></a>
+</div>
+</b:if>
+</div>
+<div class='clear'/>
+</b:includable>
+        <b:includable id='post' var='post'>
+<article class='post'>
+  <!-- V8.7 GSC FIX: BlogPosting microdata eliminado para evitar duplicado con TechArticle JSON-LD -->
+  <a expr:name='data:post.id'/>
+  <b:if cond='data:post.title'>
+  <h3 class='post-title entry-title'>
+  <b:if cond='data:post.link or (data:post.url and data:blog.url != data:post.url)'>
+  <a expr:href='data:post.link ? data:post.link : data:post.url'><data:post.title/></a>
+  <b:else/>
+  <data:post.title/>
+  </b:if>
+  </h3>
+  </b:if>
+  <div class='post-header'>
+  <div class='post-header-line-1'/>
+  </div>
+  <div class='post-body entry-content' expr:id='&quot;post-body-&quot; + data:post.id'>
+  <data:post.body/>
+  <div style='clear: both;'/>
+  </div>
+  <b:if cond='data:post.hasJumpLink'>
+  <div class='jump-link'>
+  <a expr:href='data:post.url + &quot;#more&quot;' expr:title='data:post.title'><data:post.jumpText/></a>
+  </div>
+  </b:if>
+  <div class='post-footer'>
+  <div class='post-footer-line post-footer-line-1'>
+  <span class='post-author vcard'>
+  <b:if cond='data:top.showAuthor'>
+  <data:top.authorLabel/> <span class='fn'><data:post.author/></span>
+  </b:if>
+  </span>
+  <span class='post-timestamp'>
+  <b:if cond='data:top.showTimestamp'>
+  <data:top.timestampLabel/>
+  <b:if cond='data:post.url'>
+  <a class='timestamp-link' expr:href='data:post.url' rel='bookmark' title='permanent link'><abbr class='published' expr:title='data:post.timestampISO8601'><data:post.timestamp/></abbr></a>
+  </b:if>
+  </b:if>
+  </span>
+  </div>
+  <div class='post-footer-line post-footer-line-2'>
+  <span class='post-labels'>
+  <b:if cond='data:top.showPostLabels and data:post.labels'>
+  <data:postLabelsLabel/>
+  <b:loop values='data:post.labels' var='label'>
+  <a expr:href='data:label.url' rel='tag'><data:label.name/></a><b:if cond='not data:label.isLast'>,</b:if>
+  </b:loop>
+  </b:if>
+  </span>
+  </div>
+  </div>
+</article>
+</b:includable>
+    <b:includable id='postQuickEdit' var='post'>
+<b:if cond='data:post.editUrl'>
+<span expr:class='&quot;item-control &quot; + data:post.adminClass'>
+<a expr:href='data:post.editUrl' expr:title='data:top.editPostMsg'>
+<img alt='' class='icon-action' height='18' src='https://resources.blogblog.com/img/icon18_edit_allbkg.gif' width='18'/>
+</a>
+</span>
+</b:if>
+</b:includable>
+    <b:includable id='shareButtons' var='post'>
+<b:if cond='data:top.showEmailButton'><a class='goog-inline-block share-button sb-email' expr:href='data:post.sharePostUrl + &quot;&amp;target=email&quot;' expr:title='data:top.emailThisMsg' target='_blank'><span class='share-button-link-text'><data:top.emailThisMsg/></span></a></b:if><b:if cond='data:top.showBlogThisButton'><a class='goog-inline-block share-button sb-blog' expr:href='data:post.sharePostUrl + &quot;&amp;target=blog&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=270,width=475\&quot;); return false;&quot;' expr:title='data:top.blogThisMsg' target='_blank'><span class='share-button-link-text'><data:top.blogThisMsg/></span></a></b:if><b:if cond='data:top.showTwitterButton'><a class='goog-inline-block share-button sb-twitter' expr:href='data:post.sharePostUrl + &quot;&amp;target=twitter&quot;' expr:title='data:top.shareToTwitterMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToTwitterMsg/></span></a></b:if><b:if cond='data:top.showFacebookButton'><a class='goog-inline-block share-button sb-facebook' expr:href='data:post.sharePostUrl + &quot;&amp;target=facebook&quot;' expr:onclick='&quot;window.open(this.href, \&quot;_blank\&quot;, \&quot;height=430,width=640\&quot;); return false;&quot;' expr:title='data:top.shareToFacebookMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToFacebookMsg/></span></a></b:if><b:if cond='data:top.showPinterestButton'><a class='goog-inline-block share-button sb-pinterest' expr:href='data:post.sharePostUrl + &quot;&amp;target=pinterest&quot;' expr:title='data:top.shareToPinterestMsg' target='_blank'><span class='share-button-link-text'><data:top.shareToPinterestMsg/></span></a></b:if>
+</b:includable>
+    <b:includable id='status-message'>
+<b:if cond='data:navMessage'>
+<div class='status-msg-wrap'>
+<div class='status-msg-body'><data:navMessage/></div>
+<div class='status-msg-border'>
+<div class='status-msg-bg'>
+<div class='status-msg-hidden'><data:navMessage/></div>
+</div>
+</div>
+</div>
+<div style='clear: both;'/>
+</b:if>
+</b:includable>
+    <b:includable id='threaded-comment-form' var='post'>
+<div class='comment-form'>
+<a name='comment-form'/>
+<b:if cond='data:mobile'>
+<p><data:blogCommentMessage/></p>
+<data:blogTeamBlogMessage/>
+<a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' style='display: none' width='100%'/>
+<b:else/>
+<p><data:blogCommentMessage/></p>
+<data:blogTeamBlogMessage/>
+<a expr:href='data:post.commentFormIframeSrc' id='comment-editor-src'/>
+<iframe allowtransparency='true' class='blogger-iframe-colorize blogger-comment-from-post' expr:height='data:cmtIframeInitialHeight' frameborder='0' id='comment-editor' name='comment-editor' src='' width='100%'/>
+</b:if>
+<data:post.cmtfpIframe/>
+<script type='text/javascript'>
+BLOG_CMT_createIframe(&#39;<data:post.appRpcRelayPath/>&#39;);
+</script>
+</div>
+</b:includable>
+    <b:includable id='threaded_comment_js' var='post'>
+<script async='async' expr:src='data:post.commentSrc' type='text/javascript'/>
+<script type='text/javascript'>
+(function() {
+  var items = <data:post.commentJso/>;
+  var msgs = <data:post.commentMsgs/>;
+  var config = <data:post.commentConfig/>;
+// <![CDATA[
+  var cursor = null;
+  if (items && items.length > 0) {
+    cursor = parseInt(items[items.length - 1].timestamp) + 1;
+  }
+  var bodyFromEntry = function(entry) {
+    var text = (entry &&
+                ((entry.content && entry.content.$t) ||
+                 (entry.summary && entry.summary.$t))) ||
+        '';
+    if (entry && entry.gd$extendedProperty) {
+      for (var k in entry.gd$extendedProperty) {
+        if (entry.gd$extendedProperty[k].name == 'blogger.contentRemoved') {
+          return '<span class="deleted-comment">' + text + '</span>';
+        }
+      }
+    }
+    return text;
+  }
+  var parse = function(data) {
+    cursor = null;
+    var comments = [];
+    if (data && data.feed && data.feed.entry) {
+      for (var i = 0, entry; entry = data.feed.entry[i]; i++) {
+        var comment = {};
+        var id = /blog-(\d+).post-(\d+)/.exec(entry.id.$t);
+        comment.id = id ? id[2] : null;
+        comment.body = bodyFromEntry(entry);
+        comment.timestamp = Date.parse(entry.published.$t) + '';
+        if (entry.author && entry.author.constructor === Array) {
+          var auth = entry.author[0];
+          if (auth) {
+            comment.author = {
+              name: (auth.name ? auth.name.$t : undefined),
+              profileUrl: (auth.uri ? auth.uri.$t : undefined),
+              avatarUrl: (auth.gd$image ? auth.gd$image.src : undefined)
+            };
+          }
+        }
+        if (entry.link) {
+          if (entry.link[2]) {
+            comment.link = comment.permalink = entry.link[2].href;
+          }
+          if (entry.link[3]) {
+            var pid = /.*comments\/default\/(\d+)\?.*/.exec(entry.link[3].href);
+            if (pid && pid[1]) {
+              comment.parentId = pid[1];
+            }
+          }
+        }
+        comment.deleteclass = 'item-control blog-admin';
+        if (entry.gd$extendedProperty) {
+          for (var k in entry.gd$extendedProperty) {
+            if (entry.gd$extendedProperty[k].name == 'blogger.itemClass') {
+              comment.deleteclass += ' ' + entry.gd$extendedProperty[k].value;
+            } else if (entry.gd$extendedProperty[k].name == 'blogger.displayTime') {
+              comment.displayTime = entry.gd$extendedProperty[k].value;
+            }
+          }
+        }
+        comments.push(comment);
+      }
+    }
+    return comments;
+  };
+  var paginator = function(callback) {
+    if (hasMore()) {
+      var url = config.feed + '?alt=json&v=2&orderby=published&reverse=false&max-results=50';
+      if (cursor) {
+        url += '&published-min=' + new Date(cursor).toISOString();
+      }
+      window.bloggercomments = function(data) {
+        var parsed = parse(data);
+        cursor = parsed.length < 50 ? null
+            : parseInt(parsed[parsed.length - 1].timestamp) + 1
+        callback(parsed);
+        window.bloggercomments = null;
+      }
+      url += '&callback=bloggercomments';
+      var script = document.createElement('script');
+      script.type = 'text/javascript';
+      script.src = url;
+      document.getElementsByTagName('head')[0].appendChild(script);
+    }
+  };
+  var hasMore = function() { return !!cursor; };
+  var getMeta = function(key, comment) {
+    if ('iswriter' == key) {
+      var matches = !!comment.author
+          && comment.author.name == config.authorName
+          && comment.author.profileUrl == config.authorUrl;
+      return matches ? 'true' : '';
+    } else if ('deletelink' == key) {
+      return config.baseUri + '/comment/delete/'
+           + config.blogId + '/' + comment.id;
+    } else if ('deleteclass' == key) {
+      return comment.deleteclass;
+    }
+    return '';
+  };
+  var replybox = null;
+  var replyUrlParts = null;
+  var replyParent = undefined;
+  var onReply = function(commentId, domId) {
+    if (replybox == null) {
+      replybox = document.getElementById('comment-editor');
+      if (replybox != null) {
+        replybox.height = '250px';
+        replybox.style.display = 'block';
+        replyUrlParts = replybox.src.split('#');
+      }
+    }
+    if (replybox && (commentId !== replyParent)) {
+      replybox.src = '';
+      document.getElementById(domId).insertBefore(replybox, null);
+      replybox.src = replyUrlParts[0]
+          + (commentId ? '&parentID=' + commentId : '')
+          + '#' + replyUrlParts[1];
+      replyParent = commentId;
+    }
+  };
+  var hash = (window.location.hash || '#').substring(1);
+  var startThread, targetComment;
+  if (/^comment-form_/.test(hash)) {
+    startThread = hash.substring('comment-form_'.length);
+  } else if (/^c[0-9]+$/.test(hash)) {
+    targetComment = hash.substring(1);
+  }
+  var configJso = { 'maxDepth': config.maxThreadDepth };
+  var provider = {
+    'id': config.postId,
+    'data': items,
+    'loadNext': paginator,
+    'hasMore': hasMore,
+    'getMeta': getMeta,
+    'onReply': onReply,
+    'rendered': true,
+    'initComment': targetComment,
+    'initReplyThread': startThread,
+    'config': configJso,
+    'messages': msgs
+  };
+  var render = function() {
+    if (window.goog && window.goog.comments) {
+      var holder = document.getElementById('comment-holder');
+      window.goog.comments.render(holder, provider);
+    }
+  };
+  if (window.goog && window.goog.comments) {
+    render();
+  } else {
+    window.goog = window.goog || {};
+    window.goog.comments = window.goog.comments || {};
+    window.goog.comments.loadQueue = window.goog.comments.loadQueue || [];
+    window.goog.comments.loadQueue.push(render);
+  }
+})();
+// ]]>
+</script>
+</b:includable>
+    <b:includable id='threaded_comments' var='post'>
+<div class='comments' id='comments'>
+<a name='comments'/>
+<h4><data:post.commentLabelFull/>:</h4>
+<div class='comments-content'>
+<b:include cond='data:post.embedCommentForm' data='post' name='threaded_comment_js'/>
+<div id='comment-holder'>
+<data:post.commentHtml/>
+</div>
+</div>
+<p class='comment-footer'>
+<b:if cond='data:post.allowNewComments'>
+<b:include data='post' name='threaded-comment-form'/>
+<b:else/>
+<data:post.noNewCommentsText/>
+</b:if>
+</p>
+<b:if cond='data:showCmtPopup'>
+<div id='comment-popup'>
+<iframe allowtransparency='true' frameborder='0' id='comment-actions' name='comment-actions' scrolling='no'/>
+</div>
+</b:if>
+<div id='backlinks-container'>
+<div expr:id='data:widget.instanceId + &quot;_backlinks-container&quot;'>
+</div>
+</div>
+</div>
+</b:includable>
+  </b:widget>
+</b:section>
+</main>
+
+<b:section class='footer-widgets' id='footer-widgets' name='Footer widgets' showaddelement='yes'/>
+</div>
+
+
+<!-- Opción B: JS externo, TODO menos KIOSCO -->
+<b:if cond='data:blog.pageName != &quot;KIOSCO&quot; and data:blog.pageName != &quot;KIOSKO&quot; and data:blog.pageName != &quot;Kiosco&quot; and data:blog.pageName != &quot;Kiosko&quot;'>
+  <script defer='defer' src='https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/initP52.js'/>
+</b:if>
+
+</body>
+</html>
