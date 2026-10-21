@@ -1,55 +1,62 @@
-# Nauscopio - Tema V7.1 Opción B (Descompuesto)
+# Nauscopio Assets - v7.2 Fix Audit 2
 
-## Qué se ha hecho
-Tu Tema V7.html (64KB de b:skin + 24KB JS = ~88KB) se ha separado en:
+## Qué corrige v7.2 respecto a v7.1
+- **TOC móvil:** autocrea `#mnav-auto` antes de `.layout` si el post no lo tiene. Antes `initTOC` abortaba y no había scrollspy ni índice en móvil.
+- **Theme:** clave única `nauscopio-p52-theme`, migra `p52-theme`, evita doble handler que dejaba el botón inoperante. Default claro.
+- **Lightbox:** excluye 11 figuras provisionales (logo marcador, `data-provisional`, texto "figura pendiente", "fuente prevista", href="#").
+- **Carets anexos:** añade `data-anexo-toggle` automáticamente a enlaces del índice que apuntan a <details>.
+- **Report-Min.css:** fix `#p52-report:is(` -> `#p52-report :is(` y `:where(`.
+- **Modo oscuro cajas:** `.entry-nav` y `.method-box` ahora usan `var(--p52-card2)` / `var(--p52-border)` en lugar de vars inexistentes.
+- **Mayúsculas:** todo en minúsculas, ruta `@v7.2/` simple, no `@v7.1/v7.1/`.
 
-| Archivo | Tamaño original | Tamaño nuevo | Dónde se carga |
-|---------|---------------|--------------|----------------|
-| base.css | 6.0KB dentro de b:skin | 4.4KB | Siempre (en b:skin) |
-| report.css | 56.6KB dentro de b:skin | 57.1KB | Solo item/static_page via CDN |
-| report-core.css | - | 49.8KB | Solo índices (opción avanzada) |
-| report-extras.css | - | 6.8KB | Solo informes completos (opción avanzada) |
-| initP52.js | 24.3KB inline | 24.4KB | Solo item/static_page via CDN |
+## Archivos
+- `report-core.css` (50KB) + `report-core.min.css` - para home, kiosco, índices
+- `report-extras.css` (7KB) + `report-extras.min.css` - solo informes completos
+- `report.css` + `report.min.css` - core+extras combinado
+- `base.css` + `base.min.css` - siempre en b:skin
+- `initP52.js` + `initP52.min.js` - V7.2 Fix audit 2
 
-### Ahorro
-- Home / Kiosco / Archivo: 88KB -> 4.4KB (20x menos)
-- Índice: 88KB -> 4.4+49.8=54.2KB (40% menos) si usas core, o 61.5KB con report completo
-- Informe: 88KB -> 61.5KB pero con caché: 2ª visita 0KB de CSS/JS
+## Instalación / Actualización
 
-## Archivos en /v7.1/
-- base.css - para pegar en b:skin
-- report.css - subir a GitHub
-- report-core.css / report-extras.css - split avanzado opcional
-- initP52.js - subir a GitHub
-- base.min.css / report.min.css - versiones minificadas (ahorran ~30% más)
+### 1. Subir a GitHub
+En https://github.com/nauscopio/nauscopio-assets
+- Crea carpeta `v7.2/` y sube los 10 archivos de este paquete
+- Commit a main
 
-## Instalación Opción B Híbrida (recomendada)
+### 2. Crear Release v7.2
+- GitHub > Releases > Draft new release > Tag `v7.2` (crea tag en main)
+- Title: `v7.2 Fix Audit 2 - mnav, theme, lightbox`
+- Publish
 
-1. Crea repo público en GitHub: `nauscopio-assets`
-2. Sube `v7.1/report.css` y `v7.1/initP52.js` (y opcionalmente core/extras)
-3. Crea un Release / Tag `v7.1` en GitHub
-4. Verifica URLs:
-   https://cdn.jsdelivr.net/gh/TU-USUARIO/nauscopio-assets@v7.1/report.css
-   https://cdn.jsdelivr.net/gh/TU-USUARIO/nauscopio-assets@v7.1/initP52.js
-5. En Blogger > Tema > Editar HTML, pega el contenido de `Tema-V8-OptionB.xml` (reemplaza USUARIO)
-6. Guarda
+### 3. Verificar URLs (deben dar 200)
+```
+https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-core.css
+https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-extras.css
+https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report.css
+https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/initP52.js
+https://raw.githubusercontent.com/nauscopio/nauscopio-assets/v7.2/report-core.css
+https://raw.githubusercontent.com/nauscopio/nauscopio-assets/v7.2/initP52.js
+```
 
-### Qué cambiar en Tema-V8-OptionB.xml
-Busca `USUARIO` y sustituye por tu usuario GitHub.
-Si tu repo se llama distinto a `nauscopio-assets`, cambia también el nombre.
+### 4. Purga jsDelivr (si hace falta)
+```
+https://purge.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-core.css
+https://purge.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/report-extras.css
+https://purge.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.2/initP52.js
+```
 
-## Opción B Full External
-Si quieres que TODO esté en CDN (incluso base), usa `Tema-V8-FullExternal.xml`.
-En este caso b:skin queda vacío (solo variable) y base.css también va por CDN.
-Ventaja: edición 100% en VS Code. Desventaja: una petición extra en Home.
+### 5. Actualizar Blogger
+- Blogger > Tema > Editar HTML > pega `Tema-Blogger-V8.9-v7.2.xml`
+- Cambia `@v7.1` por `@v7.2` (ya viene hecho en el XML incluido)
+- Guarda
 
-## Purga de caché jsDelivr
-Tras push, jsDelivr tarda 2-5 min. Si necesitas purga inmediata:
-https://purge.jsdelivr.net/gh/TU-USUARIO/nauscopio-assets@v7.1/report.css
+### 6. Limpiar post
+En el post del P52:
+- Añade antes de `<div class="layout">`: `<nav class="mnav" id="mnav-auto" aria-label="Navegación móvil del informe"></nav>` (opcional, V7.2 lo autocrea)
+- Borra todo el `<script>...</script>` final del post (theme, to-top, hash, aria-pressed ya los hace initP52.js)
+- Quita las 11 `<figure>` provisionales o marca `data-provisional data-no-lightbox` y quita `<a href="#">` y `zoomable`
 
-## Próximos pasos
-- Cuando edites CSS, crea v7.2/, sube, tag v7.2, cambia @v7.1 por @v7.2 en el tema
-- Rollback: vuelve a @v7.1 en 10 segundos
-- Tier 2: activa el bloque comentado en Tema-V8-OptionB.xml para separar core/extras por URL
+## Rollback
+Si algo falla, vuelve a `@v7.1` en el tema en 10 segundos. Ambas versiones coexisten.
 
-Generado automáticamente desde Tema-V7.html el 2026-10-18
+Generado 2026-10-21
