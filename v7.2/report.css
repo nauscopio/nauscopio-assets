@@ -2,7 +2,7 @@
 ================================================================
 NAUSCOPIO · REPORT CSS
 ================================================================
-Versión:      V7.1 Option B (report)
+Versión:      V7.2 Fix Audit Claude Option B (report)
 Fecha:        2026-10-18
 Alcance:      solo páginas con #p52-report (informes e índices)
 Contenido:    06 Informe #p52-report (06.1 a 06.23), 07 Impresión, 08 Responsive
@@ -1865,6 +1865,44 @@ Carga:        <link> condicional en item/static_page via CDN
   #p52-report details.glossary,
   #p52-report .part-collapse {
     background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+
+/* === FIX V7.2.2 - Claude audit - entry-nav/method-box fondo claro legible === */
+#p52-report .entry-nav,
+#p52-report .method-box {
+  background: var(--p52-card, #fff) !important;
+  border: 1px solid var(--p52-border, #e0d8c8) !important;
+  color: var(--p52-text, #1a1a1a) !important;
+}
+#p52-report.light .entry-nav,
+#p52-report.light .method-box {
+  background: #fff7ec !important;
+  border-color: rgba(138,72,0,.28) !important;
+  color: #1f1f1f !important;
+}
+#p52-report .entry-nav summary,
+#p52-report .method-box h3 {
+  color: #c45a1a !important;
+}
+#p52-report.light .entry-nav summary,
+#p52-report.light .method-box h3 {
+  color: var(--p52-orange-light, #8a4800) !important;
+}
+#p52-report .method-box {
+  border-left: 4px solid #c45a1a !important;
+}
+@media print {
+  #p52-report .entry-nav,
+  #p52-report .method-box,
+  #p52-report.light .entry-nav,
+  #p52-report.light .method-box {
+    background: #fff !important;
+    border-color: rgba(0,0,0,.25) !important;
+    color: #000 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
