@@ -1,9 +1,48 @@
-/* 
-v7.3 - COPIA EXACTA DE v7.2/report-extras.css
-Instruccion para novato: 
-1. Ve a https://github.com/nauscopio/nauscopio-assets/tree/main/v7.2
-2. Abre report-extras.css > boton Raw > Ctrl+A > Ctrl+C
-3. Vuelve a este archivo y pega encima de este texto
-Si ya estas subiendo este zip tal cual, GitHub te dejara subirlo, pero luego debes reemplazarlo con el contenido real de v7.2
-Para que funcione ya, dejalo asi y luego en GitHub editalo pegando el contenido real.
+/* nauscopio-assets v7.3 - report-extras.css
+   Extras: leyenda, mnav-auto, copy buttons, responsive cards, dark tweaks
 */
+
+#p52-report #mnav-auto{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+#p52-report #mnav-auto a{
+  display:inline-block;
+  padding:4px 10px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  font-size:11px;
+  text-decoration:none;
+  color:var(--accent2);
+  background:var(--card-bg);
+}
+#p52-report #mnav-auto a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+#p52-report .legend{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:8px;padding:10px 12px;margin:10px 0}
+#p52-report .legend summary{cursor:pointer;font-weight:700}
+
+#p52-report .btn-copy{
+  padding:6px 12px;
+  border:1px solid #4a7ba8;
+  border-radius:6px;
+  background:#1a2f47;
+  color:#e8f4ff;
+  font:inherit;
+  font-size:.9em;
+  cursor:pointer;
+}
+#p52-report .btn-copy:hover{background:#234066}
+
+@media(max-width:600px){
+  #p52-report .table-wrap.responsive-cards table,
+  #p52-report .table-wrap.responsive-cards thead,
+  #p52-report .table-wrap.responsive-cards tbody,
+  #p52-report .table-wrap.responsive-cards tr,
+  #p52-report .table-wrap.responsive-cards th,
+  #p52-report .table-wrap.responsive-cards td{display:block;width:100%;box-sizing:border-box}
+  #p52-report .table-wrap.responsive-cards thead{display:none}
+  #p52-report .table-wrap.responsive-cards tr{border:1px solid var(--border);border-radius:8px;margin:8px 0;padding:8px}
+  #p52-report .table-wrap.responsive-cards td{border:none;padding:4px 0}
+  #p52-report .table-wrap.responsive-cards td::before{content:attr(data-label) ": ";font-weight:700;opacity:.7}
+}
+
+/* Chart helpers for calculadoras V7 */
+#p52-report .chart-wrap{margin:14px 0 8px;max-width:100%;overflow:hidden}
+#p52-report .chart-wrap svg{width:100%;height:auto;display:block;background:var(--bg2);border:1px solid var(--border);border-radius:8px}
