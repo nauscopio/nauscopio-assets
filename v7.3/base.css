@@ -1,0 +1,27 @@
+/*!
+ * Nauscopio P52 - base.css v7.3
+ * Siempre en b:skin Blogger - reset + variables globales
+ * CDN: https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@v7.3/base.css
+ */
+:root{
+  --p52-bg: #fafaf8;
+  --p52-text: #1a1a1a;
+  --p52-muted: #6b7280;
+  --p52-accent: #b45309;
+  --p52-border: #e5e7eb;
+  --p52-card: #ffffff;
+  --p52-card2: #f9fafb;
+  --p52-max: 1080px;
+}
+[data-theme="dark"]{
+  --p52-bg: #0f0f0e;
+  --p52-text: #f3f4f6;
+  --p52-muted: #9ca3af;
+  --p52-accent: #fbbf24;
+  --p52-border: #27272a;
+  --p52-card: #18181b;
+  --p52-card2: #232326;
+}
+html,body{margin:0;padding:0;background:var(--p52-bg);color:var(--p52-text)}
+a{color:var(--p52-accent)} a:hover{color:var(--p52-accent-2,#92400e)}
+img{max-width:100%;height:auto}
