@@ -330,7 +330,7 @@
           var selectedLoad=load ? Number(load.value) : NaN;
           var comparable=refs.filter(function(r){ return (Number(r.z)===4 || Number(r.z)===8) && Number(r.z)===selectedLoad && Number(r.p)>0; });
           html+='<span class="co-sep"></span><span class="co-head">'+tr.fixedCompare+'</span>';
-          factors.forEach(function(f){
+          if(comparable.length) factors.forEach(function(f){
             var p=Math.pow(10,(L-spl1w-f)/10);
             var cls=f===0?' co-factor-0':'';
             html+='<span class="co-line'+cls+'"><b>'+tr.reference+' '+fLabel(f)+' dB</b>:</span>';
