@@ -308,7 +308,7 @@
     ensureSPL(); ensureZout();
     (function(){
       var sens=root.querySelector('#c-sens'), dist=root.querySelector('#c-dist');
-      var spl=root.querySelector('#c-spl'), gain=root.querySelector('#c-gain');
+      var spl=root.querySelector('#c-spl'), gain=root.querySelector('#c-gain'), load=root.querySelector('#c-load');
       var sensVal=root.querySelector('#c-sens-val'), distVal=root.querySelector('#c-dist-val'), splVal=root.querySelector('#c-spl-val');
       var out=root.querySelector('#c-out'), live=root.querySelector('#c-out-live');
       if(!sens||!dist||!spl||!gain||!out) return;
@@ -327,19 +327,21 @@
           '<span class="co-line">'+tr.spl1w+' <b>'+fmt(D,2)+' m</b>: <b>'+fmt(spl1w,2)+' dB</b></span>'+
           '<span class="co-line">'+tr.splTarget+': <b>'+L.toFixed(0)+' dB</b> - '+tr.factor+': <b>'+fLabel(G)+' dB</b> - '+tr.power+': <b>'+fmt(last,2)+' W</b> '+tr.perChannel+'</span>';
         if(refs.length){
+          var selectedLoad=load ? Number(load.value) : NaN;
+          var comparable=refs.filter(function(r){ return (Number(r.z)===4 || Number(r.z)===8) && Number(r.z)===selectedLoad && Number(r.p)>0; });
           html+='<span class="co-sep"></span><span class="co-head">'+tr.fixedCompare+'</span>';
-          factors.forEach(function(f){
+          if(comparable.length) factors.forEach(function(f){
             var p=Math.pow(10,(L-spl1w-f)/10);
             var cls=f===0?' co-factor-0':'';
             html+='<span class="co-line'+cls+'"><b>'+tr.reference+' '+fLabel(f)+' dB</b>:</span>';
-            refs.forEach(function(r){ html+='<span class="co-line">  - '+esc(r.n)+': <b>'+sg(10*Math.log10(r.p/p))+' dB</b></span>'; });
+            comparable.forEach(function(r){ html+='<span class="co-line">  - '+esc(r.n)+': <b>'+sg(10*Math.log10(r.p/p))+' dB</b></span>'; });
           });
-          html+='<span class="co-line" style="color:var(--p52-muted2);font-size:11.5px;margin-top:6px">'+tr.marginsNote+'</span>';
+          html+='<span class="co-line" style="color:var(--p52-muted2);font-size:11.5px;margin-top:6px">'+tr.marginsNote+' '+(lang==='en'?'Only matching 4/8 ohm loads are compared; test conditions differ.':lang==='de'?'Nur passende 4/8-Ohm-Lasten werden verglichen; Messbedingungen unterscheiden sich.':'Solo se comparan cargas coincidentes de 4 u 8 ohm; las condiciones de ensayo pueden diferir.')+'</span>';
         }
         out.innerHTML=html;
       };
       var announce=function(){ if(live) live.textContent=tr.liveSPL(spl.value, gain.value, fmt(last,1)); };
-      [sens, dist, spl, gain].forEach(function(el){
+      [sens, dist, spl, gain].concat(load?[load]:[]).forEach(function(el){
         el.addEventListener('input', render);
         el.addEventListener('change', function(){ render(); announce(); });
       });
@@ -409,9 +411,10 @@
     lb.innerHTML='<button type="button" class="lb-close" aria-label="'+tr.close+'">&times;</button><img alt=""><span class="lb-cap" hidden></span>';
     document.body.appendChild(lb);
     var lbImg=lb.querySelector('img');
+    lbImg.addEventListener('error',function(){ lbCap.textContent=(lang==='en'?'Image could not be loaded.':lang==='de'?'Bild konnte nicht geladen werden.':'No se ha podido cargar la imagen.'); lbCap.hidden=false; });
     var lbCap=lb.querySelector('.lb-cap');
     var lbClose=lb.querySelector('.lb-close');
-    var lastFocus=null; var scrollCompensated=false;
+    var lastFocus=null; var scrollCompensated=false; var previousOverflow='', previousPadding='';
     var captionFor=function(img){
       var fig=img.closest('.figure, .x-img, .exec-img');
       if(!fig) return '';
@@ -420,12 +423,14 @@
     };
     var lockScroll=function(){
       var sw=window.innerWidth-document.documentElement.clientWidth;
+      previousOverflow=document.documentElement.style.overflow;
+      previousPadding=document.documentElement.style.paddingRight;
       document.documentElement.style.overflow='hidden';
       if(sw>0){ document.documentElement.style.paddingRight=sw+'px'; scrollCompensated=true; }
     };
     var unlockScroll=function(){
-      document.documentElement.style.overflow='';
-      if(scrollCompensated){ document.documentElement.style.paddingRight=''; scrollCompensated=false; }
+      document.documentElement.style.overflow=previousOverflow;
+      if(scrollCompensated){ document.documentElement.style.paddingRight=previousPadding; scrollCompensated=false; }
     };
     var open=function(src,alt,cap){
       lbImg.src=src; lbImg.alt=alt||'';
