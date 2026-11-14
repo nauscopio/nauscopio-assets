@@ -1,6 +1,6 @@
-# Nauscopio V7.6 — CSS compacto, candidato
+# Nauscopio V7.6 — CSS compacto, validado en V9.0.80
 
-Fecha: 2026-11-14. **No publicado en Blogger.** La plantilla validada V9.0.79 continúa usando CSS de V7.4 y JS de V7.5.
+Fecha: 2026-11-14. **Publicada en Blogger mediante el tema V9.0.80 y validada visualmente por el propietario.** Los archivos CSS de esta carpeta están fijados al commit `ccb3eb02b83ae1f022ee66641609d72294570e80`; el JS V7.5 sigue fijado a `896ecb2c7b0b5a225d935c01e31b01073333733f`.
 
 ## Archivos
 
@@ -19,13 +19,13 @@ Fecha: 2026-11-14. **No publicado en Blogger.** La plantilla validada V9.0.79 co
 - Se comprobó equilibrio de llaves y cierre de cadenas en el proceso de generación.
 - **No constituye una prueba visual, ni una validación completa de CSS por navegador.**
 
-## Pruebas antes de publicar
+## Protocolo de comprobación y regresión
 
 1. Comprobar carga HTTP 200 de ambos CSS en la URL definitiva de jsDelivr con SHA fijo.
 2. Comparar en desktop/móvil Portada, Front-page, índices ES/EN y varios informes largos.
 3. Probar modo claro/oscuro, contraste, tablas, navegación/anexos, SVG, calculadoras, lightbox e impresión.
 4. Verificar consola de desarrollador, Network y métricas reales de transferencia y renderizado.
 5. Mantener `v7.4/` como rollback y no sobrescribirlo.
-6. Si todo es correcto, generar tema V9.0.80 candidato cambiando **solo** las dos URL CSS a `v7.6/*.min.css` fijadas a un commit inmutable y manteniendo `initP52.js` V7.5.
+6. El tema V9.0.80 ya usa ambas URL CSS `v7.6/*.min.css` y mantiene `initP52.js` V7.5. Conservar V9.0.79 como respaldo.
 
-La minificación CSS es de bajo riesgo, pero no aporta por sí misma nuevas funciones. Se prioriza el control de regresiones sobre el ahorro de bytes.
+El propietario confirma funcionamiento visual correcto tras actualizar la plantilla. No se han medido independientemente HTTP/CDN, compresión ni Lighthouse. La minificación CSS no aporta nuevas funciones.
