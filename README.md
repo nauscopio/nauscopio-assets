@@ -1,30 +1,35 @@
-# Nauscopio · activos compartidos de Blogger
+# Nauscopio · recursos compartidos de Blogger
 
-## Estado de producción (14-11-2026)
+## Producción verificada por el propietario · 14-11-2026
 
-- **Tema utilizado en Blogger:** V9.0.78 (XML depurado; comprobado visualmente por el propietario). **No hay copia de este XML en este repositorio todavía.**
-- **XML conservado en este repositorio:** `blogger/Tema-Blogger-V9-0-71-ACTIVOS-V7-4-SHA-FIJO.xml` (V9.0.71 histórica; **no** es la versión activa).
-- **Activos en producción:** permanecen fijados al commit inmutable `477fa1e9f21ac81adf18e4c55be706a238bdaa33`:
+**Tema activo en Blogger: V9.0.80**, actualizado y comprobado visualmente por el propietario.
 
-  - `v7.4/report-core.css`
-  - `v7.4/report-extras.css`
-  - `v7.4/initP52.js`
+El XML V9.0.80 utiliza recursos versionados e inmutables:
 
-URL base: `https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@477fa1e9f21ac81adf18e4c55be706a238bdaa33/v7.4/<archivo>`
+| Función | Ruta | Commit SHA fijado |
+|---|---|---|
+| CSS principal | `v7.6/report-core.min.css` | `ccb3eb02b83ae1f022ee66641609d72294570e80` |
+| CSS adicional | `v7.6/report-extras.min.css` | `ccb3eb02b83ae1f022ee66641609d72294570e80` |
+| JavaScript | `v7.5/initP52.js` | `896ecb2c7b0b5a225d935c01e31b01073333733f` |
 
-## Candidata V7.5 incorporada a main
+URL base por recurso: `https://cdn.jsdelivr.net/gh/nauscopio/nauscopio-assets@<SHA>/<ruta>`.
 
-La carpeta `v7.5/` contiene **un candidato de `initP52.js`**, junto con un README de pruebas. Se incorporó mediante [PR #2](https://github.com/nauscopio/nauscopio-assets/pull/2), commit de fusión `896ecb2c7b0b5a225d935c01e31b01073333733f`.
+**Nota:** esta documentación identifica las URL del XML V9.0.80 preparado y confirmado por el propietario. La respuesta HTTP del CDN y las métricas de rendimiento no se han auditado aquí de forma independiente.
 
-Corrección: no interceptar clics en imágenes que conducen a páginas, PDF u otros recursos ajenos al lightbox; conserva la ampliación de imágenes y la exclusión especial del Magnat MA 900. **No hay despliegue automático en Blogger.**
+## Trazabilidad y respaldo
 
-La V7.5 **no** sustituye a V7.4 en producción por el mero hecho de estar fusionada en `main`. El tema de Blogger continúa apuntando al SHA fijo anterior, salvo modificación explícita posterior.
+- **V9.0.79:** respaldo inmediato; usa CSS V7.4 y JS V7.5.
+- **V9.0.78:** versión anterior validada, previa a la actualización JS V7.5.
+- **V9.0.71:** XML histórico conservado en `blogger/Tema-Blogger-V9-0-71-ACTIVOS-V7-4-SHA-FIJO.xml`. **No es el tema activo.**
+- **V7.4:** CSS y JS originales conservados para rollback en el commit `477fa1e9f21ac81adf18e4c55be706a238bdaa33`.
+- **V7.5:** JS corregido, [PR #2](https://github.com/nauscopio/nauscopio-assets/pull/2).
+- **V7.6:** CSS compactados sin cambiar secuencias de tokens, [PR #3](https://github.com/nauscopio/nauscopio-assets/pull/3), fusionada en `main`.
 
-## Control de cambios
+El XML V9.0.80 y sus versiones 9.0.78/79 **no se han añadido aún al repositorio**: el único XML del directorio `blogger/` es V9.0.71. No presentar esa copia histórica como respaldo exacto del tema activo.
 
-1. Conservar los archivos `v7.4/` y el SHA de producción como respaldo.
-2. Completar las comprobaciones de navegación, zoom, temas, calculadoras y páginas ES/EN/DE descritas en `v7.5/README.md` antes de actualizar el tema.
-3. Si se decide desplegar V7.5, publicar el JS y actualizar **solo su URL** a un nuevo SHA fijo en el XML del tema, probar Blogger y conservar una copia para volver atrás.
-4. No borrar referencias históricas ni modificar recursos de SHA inmutable.
+## Reglas de mantenimiento
 
-La publicación de los HTML y páginas se gestiona en Blogger. Este repositorio no sincroniza por sí solo el tema ni las páginas.
+1. Mantener los SHA fijados mientras no se prepare y valide un nuevo tema.
+2. No borrar activos históricos de `v7.4/`, `v7.5/` o `v7.6/`.
+3. Para nuevas optimizaciones, usar ramas y PR; comparar tokens/reglas, probar visualmente y mantener posibilidad de reversión.
+4. La publicación de páginas y temas se hace en Blogger, no automáticamente mediante GitHub.
