@@ -355,10 +355,12 @@
       var zo=root.querySelector('#z-out'), zlive=root.querySelector('#z-out-live');
       if(!zout||!zmin||!znom||!zo) return;
       var zoutVal=root.querySelector('#z-zout-val'), zminVal=root.querySelector('#z-zmin-val'), znomVal=root.querySelector('#z-znom-val');
-      var lastDelta=0, lastDf=0;
+      var lastDelta=0, lastDf=0, adjustedNominal=false;
+      var nominalNotice={es:'Si Znom queda por debajo de Zmin, la calculadora lo iguala a Zmin.', en:'If Znom falls below Zmin, the calculator raises it to Zmin.', de:'Liegt Znom unter Zmin, wird es auf Zmin angehoben.'}[lang];
+      var nominalAdjusted={es:'Impedancia nominal ajustada a ', en:'Nominal impedance adjusted to ', de:'Nennimpedanz angehoben auf '}[lang];
       var renderZ=function(){
         var zm=parseFloat(zmin.value), zn=parseFloat(znom.value);
-        if(zm>zn){ zn=zm; znom.value=zn; }
+        if(zm>zn){ znom.value=zm; zn=parseFloat(znom.value); adjustedNominal=true; }
         var z=parseFloat(zout.value);
         if(zoutVal) zoutVal.textContent=fmt(z,1)+' \u03a9';
         if(zminVal) zminVal.textContent=fmt(zm,1)+' \u03a9';
@@ -369,14 +371,20 @@
           '<span class="co-line">'+tr.attZnom+' ('+fmt(zn,1)+' \u03a9): <b>'+sg(aNom)+' dB</b></span>'+
           '<span class="co-line">'+tr.varLevel+': <b>'+fmt(Math.abs(delta),2)+' dB</b></span>'+
           '<span class="co-sep"></span>'+
-          '<span class="co-line">DF @Znom: <b>'+fmt(zn/z,1)+'</b> - DF @8 \u03a9: <b>'+fmt(8/z,1)+'</b></span>';
+          '<span class="co-line">DF @Znom: <b>'+fmt(zn/z,1)+'</b> - DF @8 \u03a9: <b>'+fmt(8/z,1)+'</b></span>'+
+          '<span class="co-line">'+nominalNotice+'</span>';
       };
-      var announceZ=function(){ if(zlive) zlive.textContent=tr.liveZ(fmt(lastDelta,2), fmt(lastDf,1)); };
+      var announceZ=function(){
+        var adjustment=adjustedNominal ? nominalAdjusted+fmt(parseFloat(znom.value),1)+' Ω. ' : '';
+        if(zlive) zlive.textContent=adjustment+tr.liveZ(fmt(lastDelta,2), fmt(lastDf,1));
+        adjustedNominal=false;
+      };
       [zout, zmin, znom].forEach(function(el){
         el.addEventListener('input', renderZ);
         el.addEventListener('change', function(){ renderZ(); announceZ(); });
       });
       renderZ();
+      adjustedNominal=false;
     })();
   }
 
