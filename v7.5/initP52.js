@@ -251,10 +251,10 @@
 
   function initCalculators(root){
     var lang=getLang(root); var tr=i18n[lang]||i18n.es;
-    var fmt=function(n,k){ return n.toFixed(k).replace('.',','); };
+    var fmt=function(n,k){ var fixed=n.toFixed(k); return lang==='en'?fixed:fixed.replace('.',','); };
     var sg=function(n){ return (n>=0?'+':'\u2212')+fmt(Math.abs(n),2); };
     var esc=function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); };
-    var fLabel=function(f){ return f===0?'0':sg(f).replace(',00',''); };
+    var fLabel=function(f){ return f===0?'0':sg(f).replace(/[.,]00$/,''); };
     function ensureSPL(){
       var out=root.querySelector('#c-out'); if(!out) return null;
       if(root.querySelector('#c-sens')) return out;
