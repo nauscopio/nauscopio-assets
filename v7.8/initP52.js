@@ -574,11 +574,19 @@
     nav.appendChild(mkSep());
     nav.appendChild(cur);
     bar.appendChild(nav);
-    var contentEl=root.querySelector('main, [role="main"], .main, article')||root;
-    var txt=(contentEl.innerText||contentEl.textContent||'').trim();
-    var words=txt?txt.split(/\s+/).length:0;
-    if(words>=600){
-      var mins=Math.max(1, Math.round(words/220));
+    var candidates=root.querySelectorAll('main, [role="main"], .main, article');
+    var bestWords=0;
+    for(var c=0;c<candidates.length;c++){
+      var ct=(candidates[c].innerText||candidates[c].textContent||'').trim();
+      var cw=ct?ct.split(/\s+/).length:0;
+      if(cw>bestWords) bestWords=cw;
+    }
+    if(bestWords<200){
+      var rtTxt=(root.innerText||root.textContent||'').trim();
+      bestWords=rtTxt?rtTxt.split(/\s+/).length:0;
+    }
+    if(bestWords>=150){
+      var mins=Math.max(1, Math.round(bestWords/220));
       var rt=document.createElement('span');
       rt.className='p52-readtime';
       rt.textContent=tr.readTime(mins);
