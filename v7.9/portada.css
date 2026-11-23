@@ -315,3 +315,9 @@
   border: 1px solid #444 !important;
   border-bottom: 1px solid #444 !important;
 }
+
+/* Compactar espaciado entre título, lista de enlaces y descripción en tarjetas */
+#p52-report .indice-card h3 { margin: 0 0 6px !important; }
+#p52-report .indice-card p { margin: 0 0 8px !important; }
+#p52-report .indice-card ul { margin: 2px 0 8px !important; padding-left: 18px !important; }
+#p52-report .indice-card ul li { margin: 2px 0 !important; line-height: 1.4 !important; }
