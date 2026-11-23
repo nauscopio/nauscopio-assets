@@ -19,10 +19,10 @@
     return 'es';
   };
   var i18n = {
-    es: { skip:'Ir al contenido principal', light:'Modo claro', dark:'Modo oscuro', ariaToDark:'Cambiar a modo oscuro', ariaToLight:'Cambiar a modo claro', enlarged:'Imagen ampliada', close:'Cerrar', mobileNav:'Navegación móvil del informe', calcSPLTitle:'Calculadora SPL y potencia necesaria', sens:'Sensibilidad (dB/W/m)', dist:'Distancia de escucha (m)', spl:'SPL objetivo (pico) dB', gain:'Factor de corrección acústica', gainOpts:['0 dB - mono / campo libre','3 dB - estéreo energético','6 dB - estéreo coherente / sala seca','8 dB - estéreo coherente + sala viva'], zoutTitle:'Calculadora de variación de respuesta por Zout', zout:'Zout del amplificador (Ω)', zmin:'Zmin del altavoz (Ω)', znom:'Znom del altavoz (Ω)', attZmin:'Atenuación @Zmin', attZnom:'Atenuación @Znom', varLevel:'Variación de nivel entre Zmin y Znom', scenario:'Escenario activo (según controles)', spl1w:'SPL @ 1 W a', splTarget:'SPL objetivo', factor:'factor activo', power:'potencia', perChannel:'por canal', fixedCompare:'Comparación de escenarios fijos', reference:'Referencia', marginsNote:'Márgenes frente a potencia nominal declarada, no frente a P@1 % THD.', liveSPL:function(spl,gain,power){ return 'SPL objetivo '+spl+' dB, factor '+gain+' dB. Potencia necesaria: '+power+' W por canal.'; }, liveZ:function(delta,df){ return 'Variación de nivel '+delta+' dB. Factor de amortiguamiento '+df+'.'; } },
-    en: { skip:'Skip to main content', light:'Light mode', dark:'Dark mode', ariaToDark:'Switch to dark mode', ariaToLight:'Switch to light mode', enlarged:'Enlarged image', close:'Close', mobileNav:'Mobile report navigation', calcSPLTitle:'SPL & power requirement calculator', sens:'Sensitivity (dB/W/m)', dist:'Listening distance (m)', spl:'Target SPL (peak) dB', gain:'Acoustic correction factor', gainOpts:['0 dB - mono / free field','3 dB - stereo decorrelated','6 dB - stereo coherent / dry room','8 dB - stereo coherent + live room'], zoutTitle:'Response variation by Zout calculator', zout:'Amplifier Zout (Ω)', zmin:'Speaker Zmin (Ω)', znom:'Speaker Znom (Ω)', attZmin:'Attenuation @Zmin', attZnom:'Attenuation @Znom', varLevel:'Level variation between Zmin and Znom', scenario:'Active scenario (per controls)', spl1w:'SPL @ 1 W at', splTarget:'Target SPL', factor:'active factor', power:'power', perChannel:'per channel', fixedCompare:'Fixed scenario comparison', reference:'Reference', marginsNote:'Margins vs rated nominal power, not vs P@1% THD.', liveSPL:function(spl,gain,power){ return 'Target SPL '+spl+' dB, factor '+gain+' dB. Required power: '+power+' W per channel.'; }, liveZ:function(delta,df){ return 'Level variation '+delta+' dB. Damping factor '+df+'.'; } },
-    de: { skip:'Zum Hauptinhalt springen', light:'Heller Modus', dark:'Dunkler Modus', ariaToDark:'In dunklen Modus wechseln', ariaToLight:'In hellen Modus wechseln', enlarged:'Vergrössertes Bild', close:'Schliessen', mobileNav:'Mobile Berichtsnavigation', calcSPLTitle:'SPL- & Leistungsbedarfsrechner', sens:'Empfindlichkeit (dB/W/m)', dist:'Hörabstand (m)', spl:'Ziel-SPL (Peak) dB', gain:'Akustischer Korrekturfaktor', gainOpts:['0 dB - Mono / Freifeld','3 dB - Stereo dekorreliert','6 dB - Stereo kohärent / trockener Raum','8 dB - Stereo kohärent + halliger Raum'], zoutTitle:'Rechner für Pegelabweichung durch Zout', zout:'Verstärker Zout (Ω)', zmin:'Lautsprecher Zmin (Ω)', znom:'Lautsprecher Znom (Ω)', attZmin:'Dämpfung @Zmin', attZnom:'Dämpfung @Znom', varLevel:'Pegelabweichung zwischen Zmin und Znom', scenario:'Aktives Szenario (nach Reglern)', spl1w:'SPL @ 1 W bei', splTarget:'Ziel-SPL', factor:'aktiver Faktor', power:'Leistung', perChannel:'pro Kanal', fixedCompare:'Vergleich fester Szenarien', reference:'Referenz', marginsNote:'Margen vs Nennleistung, nicht vs P@1% THD.', liveSPL:function(spl,gain,power){ return 'Ziel-SPL '+spl+' dB, Faktor '+gain+' dB. Benötigte Leistung: '+power+' W pro Kanal.'; }, liveZ:function(delta,df){ return 'Pegelabweichung '+delta+' dB. Dämpfungsfaktor '+df+'.'; } },
-    ca: { skip:'Anar al contingut principal', light:'Mode clar', dark:'Mode fosc', ariaToDark:'Canviar a mode fosc', ariaToLight:'Canviar a mode clar', enlarged:'Imatge ampliada', close:'Tancar', mobileNav:'Navegació mòbil de l\'informe', calcSPLTitle:'Calculadora SPL i potència necessària', sens:'Sensibilitat (dB/W/m)', dist:'Distància d\'escolta (m)', spl:'SPL objectiu (pic) dB', gain:'Factor de correcció acústica', gainOpts:['0 dB - mono / camp lliure','3 dB - estèreo energètic','6 dB - estèreo coherent / sala seca','8 dB - estèreo coherent + sala viva'], zoutTitle:'Calculadora de variació de resposta per Zout', zout:'Zout de l\'amplificador (Ω)', zmin:'Zmin de l\'altaveu (Ω)', znom:'Znom de l\'altaveu (Ω)', attZmin:'Atenuació @Zmin', attZnom:'Atenuació @Znom', varLevel:'Variació de nivell entre Zmin i Znom', scenario:'Escenari actiu (segons controls)', spl1w:'SPL @ 1 W a', splTarget:'SPL objectiu', factor:'factor actiu', power:'potència', perChannel:'per canal', fixedCompare:'Comparació d\'escenaris fixos', reference:'Referència', marginsNote:'Marges respecte a potència nominal declarada, no respecte a P@1 % THD.', liveSPL:function(spl,gain,power){ return 'SPL objectiu '+spl+' dB, factor '+gain+' dB. Potència necessària: '+power+' W per canal.'; }, liveZ:function(delta,df){ return 'Variació de nivell '+delta+' dB. Factor d\'amortiment '+df+'.'; } }
+    es: { skip:'Ir al contenido principal', home:'Portada', audioIdx:'Audio', histIdx:'Historia y Economía', breadcrumbAria:'Ruta de navegación', readTime:function(m){ return 'Lectura estimada: ~'+m+' min'; }, light:'Modo claro', dark:'Modo oscuro', ariaToDark:'Cambiar a modo oscuro', ariaToLight:'Cambiar a modo claro', enlarged:'Imagen ampliada', close:'Cerrar', mobileNav:'Navegación móvil del informe', calcSPLTitle:'Calculadora SPL y potencia necesaria', sens:'Sensibilidad (dB/W/m)', dist:'Distancia de escucha (m)', spl:'SPL objetivo (pico) dB', gain:'Factor de corrección acústica', gainOpts:['0 dB - mono / campo libre','3 dB - estéreo energético','6 dB - estéreo coherente / sala seca','8 dB - estéreo coherente + sala viva'], zoutTitle:'Calculadora de variación de respuesta por Zout', zout:'Zout del amplificador (Ω)', zmin:'Zmin del altavoz (Ω)', znom:'Znom del altavoz (Ω)', attZmin:'Atenuación @Zmin', attZnom:'Atenuación @Znom', varLevel:'Variación de nivel entre Zmin y Znom', scenario:'Escenario activo (según controles)', spl1w:'SPL @ 1 W a', splTarget:'SPL objetivo', factor:'factor activo', power:'potencia', perChannel:'por canal', fixedCompare:'Comparación de escenarios fijos', reference:'Referencia', marginsNote:'Márgenes frente a potencia nominal declarada, no frente a P@1 % THD.', liveSPL:function(spl,gain,power){ return 'SPL objetivo '+spl+' dB, factor '+gain+' dB. Potencia necesaria: '+power+' W por canal.'; }, liveZ:function(delta,df){ return 'Variación de nivel '+delta+' dB. Factor de amortiguamiento '+df+'.'; } },
+    en: { skip:'Skip to main content', home:'Front Page', audioIdx:'Audio', histIdx:'History & Economics', breadcrumbAria:'Breadcrumb', readTime:function(m){ return 'Est. reading time: ~'+m+' min'; }, light:'Light mode', dark:'Dark mode', ariaToDark:'Switch to dark mode', ariaToLight:'Switch to light mode', enlarged:'Enlarged image', close:'Close', mobileNav:'Mobile report navigation', calcSPLTitle:'SPL & power requirement calculator', sens:'Sensitivity (dB/W/m)', dist:'Listening distance (m)', spl:'Target SPL (peak) dB', gain:'Acoustic correction factor', gainOpts:['0 dB - mono / free field','3 dB - stereo decorrelated','6 dB - stereo coherent / dry room','8 dB - stereo coherent + live room'], zoutTitle:'Response variation by Zout calculator', zout:'Amplifier Zout (Ω)', zmin:'Speaker Zmin (Ω)', znom:'Speaker Znom (Ω)', attZmin:'Attenuation @Zmin', attZnom:'Attenuation @Znom', varLevel:'Level variation between Zmin and Znom', scenario:'Active scenario (per controls)', spl1w:'SPL @ 1 W at', splTarget:'Target SPL', factor:'active factor', power:'power', perChannel:'per channel', fixedCompare:'Fixed scenario comparison', reference:'Reference', marginsNote:'Margins vs rated nominal power, not vs P@1% THD.', liveSPL:function(spl,gain,power){ return 'Target SPL '+spl+' dB, factor '+gain+' dB. Required power: '+power+' W per channel.'; }, liveZ:function(delta,df){ return 'Level variation '+delta+' dB. Damping factor '+df+'.'; } },
+    de: { skip:'Zum Hauptinhalt springen', home:'Startseite', audioIdx:'Audio', histIdx:'Geschichte & Wirtschaft', breadcrumbAria:'Brotkrumennavigation', readTime:function(m){ return 'Geschätzte Lesezeit: ~'+m+' Min.'; }, light:'Heller Modus', dark:'Dunkler Modus', ariaToDark:'In dunklen Modus wechseln', ariaToLight:'In hellen Modus wechseln', enlarged:'Vergrössertes Bild', close:'Schliessen', mobileNav:'Mobile Berichtsnavigation', calcSPLTitle:'SPL- & Leistungsbedarfsrechner', sens:'Empfindlichkeit (dB/W/m)', dist:'Hörabstand (m)', spl:'Ziel-SPL (Peak) dB', gain:'Akustischer Korrekturfaktor', gainOpts:['0 dB - Mono / Freifeld','3 dB - Stereo dekorreliert','6 dB - Stereo kohärent / trockener Raum','8 dB - Stereo kohärent + halliger Raum'], zoutTitle:'Rechner für Pegelabweichung durch Zout', zout:'Verstärker Zout (Ω)', zmin:'Lautsprecher Zmin (Ω)', znom:'Lautsprecher Znom (Ω)', attZmin:'Dämpfung @Zmin', attZnom:'Dämpfung @Znom', varLevel:'Pegelabweichung zwischen Zmin und Znom', scenario:'Aktives Szenario (nach Reglern)', spl1w:'SPL @ 1 W bei', splTarget:'Ziel-SPL', factor:'aktiver Faktor', power:'Leistung', perChannel:'pro Kanal', fixedCompare:'Vergleich fester Szenarien', reference:'Referenz', marginsNote:'Margen vs Nennleistung, nicht vs P@1% THD.', liveSPL:function(spl,gain,power){ return 'Ziel-SPL '+spl+' dB, Faktor '+gain+' dB. Benötigte Leistung: '+power+' W pro Kanal.'; }, liveZ:function(delta,df){ return 'Pegelabweichung '+delta+' dB. Dämpfungsfaktor '+df+'.'; } },
+    ca: { skip:'Anar al contingut principal', home:'Portada', audioIdx:'Àudio', histIdx:'Història i Economia', breadcrumbAria:'Ruta de navegació', readTime:function(m){ return 'Lectura estimada: ~'+m+' min'; }, light:'Mode clar', dark:'Mode fosc', ariaToDark:'Canviar a mode fosc', ariaToLight:'Canviar a mode clar', enlarged:'Imatge ampliada', close:'Tancar', mobileNav:'Navegació mòbil de l\'informe', calcSPLTitle:'Calculadora SPL i potència necessària', sens:'Sensibilitat (dB/W/m)', dist:'Distància d\'escolta (m)', spl:'SPL objectiu (pic) dB', gain:'Factor de correcció acústica', gainOpts:['0 dB - mono / camp lliure','3 dB - estèreo energètic','6 dB - estèreo coherent / sala seca','8 dB - estèreo coherent + sala viva'], zoutTitle:'Calculadora de variació de resposta per Zout', zout:'Zout de l\'amplificador (Ω)', zmin:'Zmin de l\'altaveu (Ω)', znom:'Znom de l\'altaveu (Ω)', attZmin:'Atenuació @Zmin', attZnom:'Atenuació @Znom', varLevel:'Variació de nivell entre Zmin i Znom', scenario:'Escenari actiu (segons controls)', spl1w:'SPL @ 1 W a', splTarget:'SPL objectiu', factor:'factor actiu', power:'potència', perChannel:'per canal', fixedCompare:'Comparació d\'escenaris fixos', reference:'Referència', marginsNote:'Marges respecte a potència nominal declarada, no respecte a P@1 % THD.', liveSPL:function(spl,gain,power){ return 'SPL objectiu '+spl+' dB, factor '+gain+' dB. Potència necessària: '+power+' W per canal.'; }, liveZ:function(delta,df){ return 'Variació de nivell '+delta+' dB. Factor d\'amortiment '+df+'.'; } }
   };
   var prefersReducedMotion = function(){ return !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches); };
 
@@ -546,11 +546,72 @@
     root.insertBefore(a, root.firstChild);
   }
 
+  function initBreadcrumbsAndReadTime(root){
+    if(root.querySelector('.p52-meta-bar')) return;
+    var path=(location.pathname||'').toLowerCase();
+    if(/\/p\/(?:portada|front-page|indice-|index-|sobre-maty|about-maty|kiosko)/.test(path)) return;
+    var lang=getLang(root); var tr=i18n[lang]||i18n.es;
+    var isEs=(lang==='es'||lang==='ca');
+    var homeUrl=isEs?'https://nauscopio.blogspot.com/p/portada.html':'https://nauscopio.blogspot.com/p/front-page.html';
+    var isHist=(document.body && document.body.classList.contains('historia')) || /historia|economia|economy|nazi|tarragona|pension/i.test(path);
+    var idxUrl=isHist ? (isEs?'https://nauscopio.blogspot.com/p/indice-de-historia-y-economia.html':'https://nauscopio.blogspot.com/p/index-history-and-economy.html') : (isEs?'https://nauscopio.blogspot.com/p/indice-informes-tecnicos.html':'https://nauscopio.blogspot.com/p/index-of-audio-technical-reports.html');
+    var idxName=isHist?tr.histIdx:tr.audioIdx;
+    var h1=root.querySelector('h1');
+    var anchor=root.querySelector('.header')||h1;
+    if(!anchor||!anchor.parentNode) return;
+    var title=(h1&&h1.textContent.trim())||document.title.replace(/^Nauscopio Scipiorum:\s*/i,'').trim();
+    var bar=document.createElement('div');
+    bar.className='p52-meta-bar';
+    var nav=document.createElement('nav');
+    nav.className='p52-breadcrumb';
+    nav.setAttribute('aria-label', tr.breadcrumbAria);
+    var mkLink=function(href,txt){ var a=document.createElement('a'); a.href=href; a.textContent=txt; return a; };
+    var mkSep=function(){ var s=document.createElement('span'); s.className='p52-breadcrumb-sep'; s.setAttribute('aria-hidden','true'); s.textContent='\u203A'; return s; };
+    var cur=document.createElement('span'); cur.className='p52-breadcrumb-cur'; cur.setAttribute('aria-current','page'); cur.textContent=title;
+    nav.appendChild(mkLink(homeUrl, tr.home));
+    nav.appendChild(mkSep());
+    nav.appendChild(mkLink(idxUrl, idxName));
+    nav.appendChild(mkSep());
+    nav.appendChild(cur);
+    bar.appendChild(nav);
+    var contentEl=root.querySelector('main, [role="main"], .main, article')||root;
+    var txt=(contentEl.innerText||contentEl.textContent||'').trim();
+    var words=txt?txt.split(/\s+/).length:0;
+    if(words>=600){
+      var mins=Math.max(1, Math.round(words/220));
+      var rt=document.createElement('span');
+      rt.className='p52-readtime';
+      rt.textContent=tr.readTime(mins);
+      bar.appendChild(rt);
+    }
+    anchor.parentNode.insertBefore(bar, anchor);
+    var hasBreadcrumbLD=false;
+    var lds=document.querySelectorAll('script[type="application/ld+json"]');
+    for(var i=0;i<lds.length;i++){
+      if((lds[i].textContent||'').indexOf('BreadcrumbList')!==-1){ hasBreadcrumbLD=true; break; }
+    }
+    if(!hasBreadcrumbLD){
+      var ld=document.createElement('script');
+      ld.type='application/ld+json';
+      ld.text=JSON.stringify({
+        '@context':'https://schema.org',
+        '@type':'BreadcrumbList',
+        itemListElement:[
+          { '@type':'ListItem', position:1, name:tr.home, item:homeUrl },
+          { '@type':'ListItem', position:2, name:idxName, item:idxUrl },
+          { '@type':'ListItem', position:3, name:title, item:location.href.split('#')[0] }
+        ]
+      });
+      document.head.appendChild(ld);
+    }
+  }
+
   function init(){
     var root=document.getElementById(REPORT_ID);
     if(!root||root.dataset.p52init) return;
     root.dataset.p52init='1';
     initSkipLink(root);
+    initBreadcrumbsAndReadTime(root);
     initTheme(root);
     initTOC(root);
     initToggles(root);
